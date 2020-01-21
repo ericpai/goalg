@@ -1,9 +1,10 @@
 package goalg_test
 
 import (
+	"testing"
+
 	"github.com/ericpai/goalg"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestPrimes(t *testing.T) {
@@ -29,4 +30,7 @@ func TestPrimes(t *testing.T) {
 	assert.Equal(t, primes, goalg.Primes(1000))
 	assert.Equal(t, primes[:len(primes)-1], goalg.Primes(997))
 	assert.Equal(t, []int(nil), goalg.Primes(1))
+	assert.Equal(t, primes, goalg.FastPrimes(1000))
+	assert.Equal(t, primes[:len(primes)-1], goalg.FastPrimes(997))
+	assert.Equal(t, []int(nil), goalg.FastPrimes(1))
 }

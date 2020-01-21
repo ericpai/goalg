@@ -209,12 +209,6 @@ issues:
         - dupl
         - gosec
 
-    # Exclude known linters from partially hard-vendored code,
-    # which is impossible to exclude via "nolint" comments.
-    - text: "should have comment( \\(or a comment on this block\\))? or be unexported"
-      linters:
-        - golint
-
     # Exclude some staticcheck messages
     - linters:
         - staticcheck

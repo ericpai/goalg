@@ -1,0 +1,26 @@
+sudo: false
+
+language: go
+
+go:
+  - 1.13.6
+
+stages:
+  - name: after_success
+    if: branch = master
+    env:
+      - TRAVIS_PULL_REQUEST_BRANCH: ""
+
+services:
+  - docker
+
+before_install:
+  - make linter-install
+  - go mod download
+
+script:
+  - make lint
+  - make test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
