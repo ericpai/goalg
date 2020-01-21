@@ -7,7 +7,8 @@ type pair struct {
 }
 
 // MXimumStack is a stack with mximum(maximum or minimum) element in the stack recorded
-// Ref: https://cp-algorithms.com/data_structures/stack_queue_modification.html
+//
+// Ref: https://cp-algorithms.com/data_structures/stack_queue_modification.html .
 type MXimumStack struct {
 	core *list.List
 	less func(i, j interface{}) bool
@@ -30,6 +31,7 @@ func (m *MXimumStack) MX() interface{} {
 }
 
 // Push pushes and records the MX record to the stack.
+//
 // Time complexity: (O(1))
 func (m *MXimumStack) Push(d interface{}) {
 	min := d
@@ -43,7 +45,8 @@ func (m *MXimumStack) Push(d interface{}) {
 }
 
 // Pop pops the stack top element.
-// Time complexity: (O(1))
+//
+// Time complexity: (O(1)).
 func (m *MXimumStack) Pop() interface{} {
 	if m.core.Len() == 0 {
 		return nil
@@ -54,7 +57,8 @@ func (m *MXimumStack) Pop() interface{} {
 }
 
 // Top returns the stack top element.
-// Time complexity: (O(1))
+//
+// Time complexity: (O(1)).
 func (m *MXimumStack) Top() interface{} {
 	if m.core.Len() == 0 {
 		return nil
@@ -63,7 +67,8 @@ func (m *MXimumStack) Top() interface{} {
 }
 
 // Len returns the length of the stack.
-// Time complexity: (O(1))
+//
+// Time complexity: (O(1)).
 func (m *MXimumStack) Len() int {
 	return m.core.Len()
 }
