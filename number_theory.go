@@ -1,8 +1,11 @@
 package goalg
 
 // Primes returns all the prime numbers in [2, n) in ascending order.
-// Time complexity: O(nloglogn)
-// Space complexity: O(n * sizeof(bool))
+//
+// Time complexity: O(nloglogn).
+//
+// Space complexity: O(n * sizeof(bool)).
+//
 // Ref: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
 func Primes(n int) []int {
 	slot := make([]bool, n)
@@ -23,9 +26,12 @@ func Primes(n int) []int {
 }
 
 // FastPrimes returns all the prime numbers in [2, n) in ascending order.
-// Time complexity: O(n)
-// Space complexity: O(n * sizeof(int))
-// Ref: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
+//
+// Time complexity: O(n).
+//
+// Space complexity: O(n * sizeof(int)).
+//
+// Ref: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html .
 func FastPrimes(n int) []int {
 	slot := make([]int, n)
 	var res []int
