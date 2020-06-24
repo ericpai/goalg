@@ -23,6 +23,8 @@ func NewMXimumStack(lessFunc func(i, j interface{}) bool) *MXimumStack {
 }
 
 // MX returns the mximum element in the stack
+//
+// Time complexity: (O(1))
 func (m *MXimumStack) MX() interface{} {
 	if m.core.Len() == 0 {
 		return nil
