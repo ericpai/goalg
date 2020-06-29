@@ -1,8 +1,8 @@
 package goalg
 
-// SparseTable is fast in multiple range maximum/minimum queryies in immutable array.
+// SparseTable is fast in multiple range maximum/minimum queries in an immutable array.
 //
-// Ref: https://cp-algorithms.com/data_structures/sparse-table.html .
+// Ref: https://cp-algorithms.com/data_structures/sparse-table.html.
 type SparseTable struct {
 	t  [][]int
 	f  func(d ...int) int
@@ -10,9 +10,11 @@ type SparseTable struct {
 	lg []int
 }
 
-// NewSparseTable creates a sparse table with the range rule l. Time complexity: O(nlgn).
+// NewSparseTable creates a sparse table with the range rule l.
 //
-// NOTICE: Parameter f must be an [idempotent function](https://en.wikipedia.org/wiki/Idempotence) if you want to do range queries in O(1). If not, wrong query results will be returned.
+// NOTICE: Parameter f must be an idempotent function: https://en.wikipedia.org/wiki/Idempotence. if you want to do range queries in O(1). If not, wrong query results will be returned.
+//
+// Time complexity: O(nlogn).
 func NewSparseTable(data []int, f func(d ...int) int) *SparseTable {
 	n := len(data)
 	t := make([][]int, n+1)
@@ -39,7 +41,7 @@ func NewSparseTable(data []int, f func(d ...int) int) *SparseTable {
 
 // QueryRangeFast queries the range [left, right] with function f.
 //
-// NOTICE: Only available if f is an [idempotent function](https://en.wikipedia.org/wiki/Idempotence).
+// NOTICE: Only available if f is an idempotent function: https://en.wikipedia.org/wiki/Idempotence.
 //
 // Time complexity: O(1).
 func (s *SparseTable) QueryRangeFast(left, right int) int {
@@ -49,7 +51,7 @@ func (s *SparseTable) QueryRangeFast(left, right int) int {
 
 // QueryRange queries the range [left, right] with function f.
 //
-// Time complexity: O(lgn).
+// Time complexity: O(logn).
 func (s *SparseTable) QueryRange(left, right int) int {
 	l := right - left + 1
 	res := s.t[left][s.lg[l]]
