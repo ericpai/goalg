@@ -34,3 +34,51 @@ func TestPrimes(t *testing.T) {
 	assert.Equal(t, primes[:len(primes)-1], goalg.FastPrimes(997))
 	assert.Equal(t, []int(nil), goalg.FastPrimes(1))
 }
+
+func TestFastPow(t *testing.T) {
+	testCases := []struct {
+		base, pow, expected int
+	}{
+		{1, 100, 1},
+		{0, 100, 0},
+		{2, 10, 1024},
+		{2, -10, 0},
+		{2, 0, 1},
+	}
+	for _, tc := range testCases {
+		assert.Equal(t, tc.expected, goalg.FastPow(tc.base, tc.pow))
+	}
+}
+
+func TestFastFloatPow(t *testing.T) {
+	testCases := []struct {
+		base     float64
+		pow      int
+		expected float64
+	}{
+		{1, 100, 1},
+		{0, 100, 0},
+		{2, 10, 1024},
+		{2, -10, 0.000976525},
+		{2, 0, 1},
+	}
+	for _, tc := range testCases {
+		assert.InDelta(t, tc.expected, goalg.FastFloatPow(tc.base, tc.pow), 0.0000001)
+	}
+}
+
+func TestFastModPow(t *testing.T) {
+	mod := 97
+	testCases := []struct {
+		base, pow, expected int
+	}{
+		{1, 100, 1},
+		{0, 100, 0},
+		{2, 10, 54},
+		{2, -10, 0},
+		{2, 0, 1},
+	}
+	for _, tc := range testCases {
+		assert.Equal(t, tc.expected, goalg.FastModPow(tc.base, tc.pow, mod))
+	}
+}
