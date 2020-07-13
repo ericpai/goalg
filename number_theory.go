@@ -86,7 +86,7 @@ func FastFloatPow(base float64, pow int) float64 {
 	return res
 }
 
-// FastModPow can compute base**pow % mod in logrithmic time. mod should be positive and less than 2^32.
+// FastModPow can compute base**pow % mod in logarithmic time. mod should be positive and less than 2^32.
 //
 // If pow is negative, the absolute of the result will less than 1, so 0 will be returned.
 //
